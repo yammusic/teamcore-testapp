@@ -51,6 +51,11 @@ This codebase follows the Hexa3 architecture, which is a combination of Hexagona
 - [Axios](https://axios-http.com/)
 - [Typescript](https://www.typescriptlang.org/)
 
+## Additional Resources
+
+- API GET for questions data: [https://us-central1-teamcore-retail.cloudfunctions.net/test_mobile/api/questions](https://us-central1-teamcore-retail.cloudfunctions.net/test_mobile/api/questions)
+- API POST for send answers: [https://us-central1-teamcore-retail.cloudfunctions.net/test_mobile/api/answer](https://us-central1-teamcore-retail.cloudfunctions.net/test_mobile/api/answer)
+
 ## Run the app
 
 1. Install dependencies
