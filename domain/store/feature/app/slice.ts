@@ -31,7 +31,7 @@ export const appSlice = createSlice({
 
     addCase(setQuestions, (state, { payload }) => ({
       ...state,
-      elements: payload,
+      questions: payload,
     }))
 
     // addCase(setTasks, (state, { payload }) => ({

@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { View } from 'react-native'
 import { Controller, useForm } from 'react-hook-form'
 import { Text, TextInput } from 'react-native-paper'
-import { PaperSelect } from 'react-native-paper-select'
 import RNPickerSelect from 'react-native-picker-select'
 
-
 import { getQuestions } from '@/infra/services/questions'
+import { sendAnswers } from '@/infra/services/answers'
 import { Button } from '@/ui/components/common/button'
 import styles from './styles'
-import { sendAnswers } from '@/infra/services/answers'
+import { useAppActions, useAppState } from '@/domain/store/feature'
 
 export default function HomeScreen() {
   const [loading, setLoading] = useState(false)
-  const [questions, setQuestions] = useState([])
   const [saved, setSaved] = useState(false)
+  const { questions } = useAppState()
+  const { setQuestions } = useAppActions()
   const { control, handleSubmit, formState: { errors }, watch, reset } = useForm()
   const allFields = watch()
 
@@ -86,7 +86,7 @@ export default function HomeScreen() {
                 rules={{
                 required: true,
                 }}
-                render={({ field: { onChange, onBlur, value } }) => (
+                render={({ field: { onChange, value } }) => (
                   <>
                     <Text>{ question.question }</Text>
 
