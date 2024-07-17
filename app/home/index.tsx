@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View } from 'react-native'
+import { Image, View } from 'react-native'
 import { Controller, useForm } from 'react-hook-form'
 import { Text, TextInput } from 'react-native-paper'
 import RNPickerSelect from 'react-native-picker-select'
@@ -64,6 +64,7 @@ export default function HomeScreen() {
 
   return (
     <View style={ styles.container }>
+      <Image source={ require('../../assets/images/logo.png') } style={{ width: 200, objectFit: 'contain' }} />
       <Text variant='titleLarge'>Welcome</Text>
 
       { (!saved && loading) && <Text>Loading...</Text> }
@@ -76,8 +77,8 @@ export default function HomeScreen() {
       ) }
 
       { !saved && (
-        <View>
-          <Text style={{ marginBottom: 32 }} variant='bodyMedium'>Please answer the following questions</Text>
+        <View style={ styles.formContainer }>
+          <Text variant='bodyMedium' style={ styles.description }>Please answer the following questions</Text>
 
           { questions && questions.map((question: any, idx) => (
             <View key={ `question-${idx}` }>
@@ -103,7 +104,7 @@ export default function HomeScreen() {
                 name={`question-${question.question_id}`}
               />
 
-              {errors[`question-${question.question_id}`] && <Text style={{ color: '#ff1744' }}>This is required.</Text>}
+              {errors[`question-${question.question_id}`] && <Text style={ styles.error }>This is required.</Text>}
             </View>
           )) }
 

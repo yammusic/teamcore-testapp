@@ -10,6 +10,20 @@ const styles = StyleSheet.create({
     gap: 8,
   },
 
+  formContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+
+  description: {
+    marginBottom: 16,
+  },
+
+  error: {
+    color: '#ff1744',
+  },
+
   button: {
     width: width - 32,
   }
